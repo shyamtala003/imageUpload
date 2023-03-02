@@ -16,15 +16,15 @@ app.use(
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir: "/temp/",
+    tempFileDir: "/tempdir/",
   })
 );
 app.set("view engine", "ejs");
-const directory = "/temp";
+// const directory = "/temp";
 
-if (!fs.existsSync(directory)) {
-  fs.mkdirSync(directory);
-}
+// if (!fs.existsSync(directory)) {
+//   fs.mkdirSync(directory);
+// }
 
 // config cloudinary
 cloudinary.config({
