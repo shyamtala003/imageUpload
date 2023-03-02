@@ -1,7 +1,8 @@
-import express from "express";
-import fileUpload from "express-fileupload";
-import cloudinary from "cloudinary";
-import dotenv from "dotenv";
+const express = require("express");
+const fileUpload = require("express-fileupload");
+const fs = require("fs");
+const cloudinary = require("cloudinary");
+const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(
   })
 );
 app.set("view engine", "ejs");
+fs.mkdir(__dirname + "/temp/", (err) => {});
 
 // config cloudinary
 cloudinary.config({
