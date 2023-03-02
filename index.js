@@ -20,7 +20,11 @@ app.use(
   })
 );
 app.set("view engine", "ejs");
-fs.mkdir(__dirname + "/temp/", (err) => {});
+const directory = "/temp";
+
+if (!fs.existsSync(directory)) {
+  fs.mkdirSync(directory);
+}
 
 // config cloudinary
 cloudinary.config({
